@@ -10,7 +10,7 @@ const GET_CITY = 'GET_CITY';
 export const asyncWeather = createAsyncThunk(
   GET_WEATHER,
   async (city, thunkAPI) => {
-    const response = await fetch(`${weatherUrl}${city},&limit=5&APPID=fcdd7031561d406650452745d0b1a9c5`, {
+    const response = await fetch(`${weatherUrl}${city},&limit=5&units=metric&APPID=fcdd7031561d406650452745d0b1a9c5`, {
       method: 'GET',
     });
     const data = await response.json();

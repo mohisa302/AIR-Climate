@@ -21,6 +21,7 @@ const weatherReducer = (state = initialState, action) => {
       icon: `https://openweathermap.org/img/wn/${action.climate.weather[0].icon}@2x.png`,
       country: action.climate.sys.country,
     };
+    console.log(action.climate.sys.country);
     return {
       ...state,
       climates: [...state.climates, climate],

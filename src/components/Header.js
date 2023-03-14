@@ -26,7 +26,7 @@ const Header = () => {
     : location.pathname.split('').slice(1).join('');
 
   return (
-    <header className="w-full border-b mb-4 bg-[#f43c8fc3]">
+    <header className="w-full border-b bg-[#ec4c8b]">
 
       <div className="gap-x-4 text-blue-500 sm:flex">
         {navLinks.map((link) => (
@@ -36,10 +36,10 @@ const Header = () => {
           />
         ))}
       </div>
-      <div className="flex items-center py-3 text-white justify-between gap-x-2 text-black mx-1">
+      <div className="flex items-center py-3 text-white justify-between gap-x-2 mx-1">
         {activeLink === '/'
             && (
-              <h3 className="ml-[12rem]"> average Temps </h3>
+              <h3 className="ml-[9rem] whitespace-nowrap"> average Temps </h3>
             )}
         {activeLink === 'Details'
             && (
