@@ -21,10 +21,6 @@ const Header = () => {
     },
   ];
 
-  // const handleLink = () => {
-  //   dispatch(openMenu());
-  // };
-
   const activeLink = location.pathname === '/'
     ? '/'
     : location.pathname.split('').slice(1).join('');
@@ -43,7 +39,7 @@ const Header = () => {
       <div className="flex items-center py-3 text-white justify-between gap-x-2 text-black mx-1">
         {activeLink === '/'
             && (
-              <h3 className="ml-[12rem]"> most views </h3>
+              <h3 className="ml-[12rem]"> Asia Temps </h3>
             )}
         {activeLink === 'Details'
             && (
@@ -51,7 +47,7 @@ const Header = () => {
               <Link to="/">
                 <AiOutlineLeft />
               </Link>
-              <h3> town/city views</h3>
+              <h3> town/city Temp</h3>
             </>
             )}
         <div className="flex">

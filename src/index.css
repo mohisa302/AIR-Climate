@@ -1,24 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Puritan:wght@700&display=swap');
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes slide-in {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
+.navbar {
+  font-family: 'Roboto Slab', serif;
 }
 
-.animate-slide-in {
-  animation-name: slide-in;
-  animation-duration: 2s; /* changed from 1s to 5s */
-  animation-fill-mode: both;
+.main {
+  font-family: 'Puritan', sans-serif;
 }
+
+
