@@ -1,12 +1,19 @@
-import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AiOutlineLeft, AiFillAudio, AiFillSetting } from 'react-icons/ai';
+import { countyName } from './data';
+import { changeCat } from '../redux/slices/categorySlice';
 
 const Header = () => {
   const location = useLocation();
-  // const dispatch = useDispatch();
-  // const menu = useSelector((state) => state.menu.menuBar);
+  const dispatch = useDispatch();
+  // const { categories } = useSelector((state) => state.categories);
+  const [search, setSearch] = useState('false');
+  const geerHandler = (e) => {
+    if (e.target.value.toLowerCase() !== 'all') dispatch(changeCat({ all: true, country: false }));
+    else dispatch(changeCat({ country: true, all: false }));
+  };
 
   const navLinks = [
     {
@@ -26,7 +33,7 @@ const Header = () => {
     : location.pathname.split('').slice(1).join('');
 
   return (
-    <header className="w-full border-b bg-[#ec4c8b]">
+    <header className="w-full border-b bg-[#6e44eb]">
 
       <div className="gap-x-4 text-blue-500 sm:flex">
         {navLinks.map((link) => (
@@ -39,7 +46,7 @@ const Header = () => {
       <div className="flex items-center py-3 text-white justify-between gap-x-2 mx-1">
         {activeLink === '/'
             && (
-              <h3 className="ml-[9rem] whitespace-nowrap"> average Temps </h3>
+              <h3 className="whitespace-nowrap"> average Temps </h3>
             )}
         {activeLink === 'Details'
             && (
@@ -50,13 +57,22 @@ const Header = () => {
               <h3> town/city Temp</h3>
             </>
             )}
-        <div className="flex">
+        <div className="flex items-center">
           <Link to="/">
             <AiFillAudio className="mr-4" />
           </Link>
-          <Link to="/Details">
-            <AiFillSetting />
-          </Link>
+          <div>
+            <AiFillSetting onClick={() => setSearch((prev) => !prev)} />
+          </div>
+          {search && (
+            <select
+              onChange={geerHandler}
+              className="text-black"
+            >
+              <option value="" className="w-2 text-sm">Select category</option>
+              {countyName.map((c) => <option value={c} key={c}>{c}</option>)}
+            </select>
+          )}
         </div>
       </div>
     </header>

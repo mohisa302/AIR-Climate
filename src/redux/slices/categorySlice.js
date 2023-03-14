@@ -1,25 +1,25 @@
 const initialState = {
-  cities: [],
+  categories: [{
+    country: false,
+    all: true,
+  }],
 };
 
-const LOAD_CITIE = 'LOAD_CITIE';
+const CHANGE_CAT = 'CHANGE_CAT';
 
-export const loadCities = (cities) => ({
-  type: LOAD_CITIE,
-  cities,
+export const changeCat = (category) => ({
+  type: CHANGE_CAT,
+  category,
 });
 
-const cityReducer = (state = initialState, action) => {
-  if (action.type === LOAD_CITIE) {
-    // const country = {
-
-    // };
+const categortReducer = (state = initialState, action) => {
+  if (action.type === CHANGE_CAT) {
     return {
       ...state,
-      cities: [...state.cities],
+      categories: action.category,
     };
   }
   return state;
 };
 
-export default cityReducer;
+export default categortReducer;
