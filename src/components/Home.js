@@ -11,14 +11,20 @@ const Home = () => {
   // load data
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
+
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
+
   const { categories } = useSelector((state) => state.categories);
+  // console.log(climates);
+
   useEffect(() => {
     if (climates.length < 1) {
       cityName.forEach((city) => dispatch(asyncWeather(city)));
     }
-  }, [dispatch, climates, categories]);
+    console.log('render');
+  }, [dispatch, [climates]]);
+
   return (
     <main className="overflow-auto">
 
@@ -46,6 +52,7 @@ const Home = () => {
             {climates.map((city) => (
               <Card
                 key={city.id}
+                id={city.id}
                 country={city.country}
                 name={city.city}
                 description={city.description}

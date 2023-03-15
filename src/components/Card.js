@@ -5,6 +5,7 @@ import { changeTemp } from '../redux/slices/tempSlice';
 const Card = (city) => {
   const {
     // country,
+    // id,
     name,
     // description,
     temperature,
@@ -23,7 +24,7 @@ const Card = (city) => {
     europeTemp += temperature / 60;
     dispatch(changeTemp(europeTemp.toString()));
   }, [dispatch, temperature]);
-
+  // console.log(id, name);
   return (
     <div className="flex flex-col text-right border-2 border-indigo-500/100 p-1">
       <img src={icon} className="h-15 w-20" alt="map" />

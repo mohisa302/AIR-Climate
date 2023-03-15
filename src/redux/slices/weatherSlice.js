@@ -21,12 +21,13 @@ export const loadClimate = (climate) => ({
 
 const weatherReducer = (state = initialState, action) => {
   if (action.type === LOAD_CLIMATE) {
+    console.log(state.climates);
     const climate = {
+      city: action.climate.name,
       temperature: action.climate.main.temp,
       humidity: action.climate.main.humidity,
       description: action.climate.weather[0].description,
       wind: action.climate.wind.speed,
-      city: action.climate.name,
       id: action.climate.id,
       icon: `https://openweathermap.org/img/wn/${action.climate.weather[0].icon}@2x.png`,
       country: country(action.climate.sys.country),

@@ -64,7 +64,7 @@ const Header = () => {
           <div>
             <AiFillSetting onClick={() => setSearch((prev) => !prev)} />
           </div>
-          {search && (
+          {!search && (
             <select
               onChange={geerHandler}
               className="text-black"
