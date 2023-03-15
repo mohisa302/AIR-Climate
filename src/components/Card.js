@@ -5,14 +5,9 @@ import { changeTemp } from '../redux/slices/tempSlice';
 
 const Card = (city) => {
   const {
-    // country,
     name,
-    // description,
     temperature,
-    // wind,
     icon,
-    // humidity,
-    // category,
   } = city;
 
   const dispatch = useDispatch();

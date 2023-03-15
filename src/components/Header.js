@@ -8,8 +8,10 @@ import { changeCat } from '../redux/slices/categorySlice';
 const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  // const { categories } = useSelector((state) => state.categories);
-  const [search, setSearch] = useState('false');
+  const [search, setSearch] = useState(false);
+  const activeLink = location.pathname === '/'
+    ? '/'
+    : location.pathname.split('').slice(1).join('');
   const geerHandler = (e) => {
     if (e.target.value.toLowerCase() !== 'all') dispatch(changeCat({ all: true, country: false }));
     else dispatch(changeCat({ country: true, all: false }));
@@ -27,10 +29,6 @@ const Header = () => {
       link: '/Details',
     },
   ];
-
-  const activeLink = location.pathname === '/'
-    ? '/'
-    : location.pathname.split('').slice(1).join('');
 
   return (
     <header className="w-full border-b bg-[#6e44eb]">
@@ -61,7 +59,7 @@ const Header = () => {
           <Link to="/">
             <AiFillAudio className="mr-4" />
           </Link>
-          {!search && (
+          {search && (
             <select
               onChange={geerHandler}
               className="text-black"

@@ -9,7 +9,7 @@ import map from '../img/europa.png';
 const Home = () => {
   // load data
   const dispatch = useDispatch();
-  const { climates } = useSelector((state) => state.climates);
+  let { climates } = useSelector((state) => state.climates);
 
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
@@ -23,6 +23,9 @@ const Home = () => {
     }
   }, [dispatch, [climates]]);
 
+  if (!categories.country) {
+    climates = climates.filter((climate) => climate.country === 'France');
+  }
   return (
     <main className="overflow-auto">
 
@@ -45,21 +48,31 @@ const Home = () => {
 
         {/* cards */}
         <div className="text-white">
-          <h4 className="bg-[#6e44eb] text-xs font-bold p-1">STATS BY COUNTRY</h4>
+          <h4 className="bg-[#6e44eb] text-xs font-bold p-1">
+            STATS BY&nbsp;
+            {!categories.country && (
+              <span>Country</span>
+            )}
+            {categories.country && (
+              <span>All</span>
+            )}
+          </h4>
           <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
-            {climates.map((city) => (
-              <Card
-                key={city.id}
-                country={city.country}
-                name={city.city}
-                description={city.description}
-                temperature={city.temperature}
-                wind={city.wind}
-                icon={city.icon}
-                humidity={city.humidity}
-                category={categories}
-              />
-            ))}
+            {categories.country && (
+              climates.map((city) => (
+                <Card
+                  key={city.id}
+                  country={city.country}
+                  name={city.city}
+                  description={city.description}
+                  temperature={city.temperature}
+                  wind={city.wind}
+                  icon={city.icon}
+                  humidity={city.humidity}
+                  category={categories}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>
