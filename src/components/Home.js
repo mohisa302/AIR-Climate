@@ -94,7 +94,7 @@ const Home = () => {
             )}
           </h4>
 
-          <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#7362fa]">
+          <div className="grid grid-cols-2 md:grid-cols-3 [&>*:nth-child(4n+3)]:bg-[#8979ff]  [&>*:nth-child(4n+2)]:bg-[#8979ff] [&>*:nth-child(4n+1)]:bg-[#5c4cd4] [&>*:nth-child(4n)]:bg-[#5c4cd4]">
 
             {/* all */}
             {categories.all && (
