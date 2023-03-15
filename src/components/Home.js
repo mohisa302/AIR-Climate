@@ -84,7 +84,7 @@ const Home = () => {
 
         {/* cards */}
         <div className="text-white">
-          <h4 className="bg-[#6e44eb] text-xs font-bold p-1">
+          <h4 className="bg-[#210479] text-xs font-bold p-1">
             STATS BY&nbsp;
             {categories.country && (
               <span>Country</span>
@@ -94,7 +94,7 @@ const Home = () => {
             )}
           </h4>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 [&>*:nth-child(4n+3)]:bg-[#8979ff]  [&>*:nth-child(4n+2)]:bg-[#8979ff] [&>*:nth-child(4n+1)]:bg-[#5c4cd4] [&>*:nth-child(4n)]:bg-[#5c4cd4]">
+          <div className="grid grid-cols-2 md:grid-cols-3 [&>*:nth-child(4n+1)]:bg-[#594acb] [&>*:nth-child(4n)]:bg-[#594acb]">
 
             {/* all */}
             {categories.all && (

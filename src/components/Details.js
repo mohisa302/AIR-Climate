@@ -15,7 +15,7 @@ const Details = () => {
   } = data;
   return (
     <div className="flex flex-col mt-20 justify-center text-white items-center">
-      <img src={icon} alt="weather icon" />
+      <img src={icon} alt="weather icon" className="border-2 bg-[rgb(151,206,255)] shadow-2xl mb-5 border-[#2e0672]" />
       <h2 className="font-bold">{name}</h2>
       <h3>{description}</h3>
       <div className="flex justify-center items-center gap-x-3">

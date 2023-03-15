@@ -30,7 +30,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full border-b bg-[#6e44eb]">
+    <header className="w-full border-b bg-[#210479]">
 
       <div className="gap-x-4 text-blue-500 sm:flex">
         {navLinks.map((link) => (
