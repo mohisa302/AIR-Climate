@@ -11,7 +11,7 @@ const Country = () => {
       <div className="flex flex-col [&>*:nth-child(odd)]:bg-[#4a3bbb] font-semibold [&>*:nth-child(even)]:text-[#0a044a] [&>*:nth-child(odd)]:text-white">
         {cities.map((city) => (
           <Link
-            to="/Details"
+            to={`/Details/${city.name}`}
             state={{
               from: '/',
               prop: city,

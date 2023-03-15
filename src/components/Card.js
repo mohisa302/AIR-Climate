@@ -26,7 +26,7 @@ const Card = (city) => {
 
   return (
     <Link
-      to={`${categories.all === true ? '/Details' : '/Country'}`}
+      to={`${categories.all === true ? `/Details/${name}` : '/Country'}`}
       state={{
         from: '/',
         prop: city,
