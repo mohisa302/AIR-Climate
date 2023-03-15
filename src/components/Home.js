@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import asyncWeather from '../redux/slices/apiSlice';
 import { cityName, countyName } from './data';
 import Card from './Card';
@@ -13,9 +13,11 @@ const Home = () => {
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
 
+  const [tempClimate, setTempClimate] = useState([]);
+
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
-  let tempClimate = [];
+
   const { categories } = useSelector((state) => state.categories);
   // console.log(climates);
 
@@ -28,14 +30,19 @@ const Home = () => {
 
   // category handler
   useEffect(() => {
-    tempClimate = [];
+    const temp = [];
     if (categories.country) {
       // tempClimate = climates.filter((climate) => climate.country === 'France');
       countyName.forEach((countryname) => {
-        tempClimate.push(climates.filter((climate) => climate.country === countryname));
+        temp.push(
+          {
+            cities: climates.filter((climate) => climate.country === countryname),
+            name: countryname,
+          },
+        );
       });
-      console.log(tempClimate);
     }
+    setTempClimate(temp);
   }, [dispatch, categories]);
 
   return (
@@ -69,8 +76,9 @@ const Home = () => {
               <span>All</span>
             )}
           </h4>
+
           <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
-            {!categories.country && (
+            {categories.all && (
               climates.map((city) => (
                 <Card
                   key={city.id}
@@ -85,15 +93,16 @@ const Home = () => {
                 />
               ))
             )}
-            {/* {categories.country && (
-              climates.map((city) => (
-                <Country
-                  key={city.country}
-                  country={city.country}
-
+            {!categories.all && (
+              tempClimate.map((country) => (
+                <Card
+                  name={country.name}
+                  key={country.name}
+                  icon=""
+                  temperature="10"
                 />
               ))
-            )} */}
+            )}
           </div>
         </div>
       </div>
