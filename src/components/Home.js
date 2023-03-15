@@ -32,7 +32,8 @@ const Home = () => {
     if (climates.length < 1) {
       cityName.forEach((city) => dispatch(asyncWeather(city)));
     }
-  }, [dispatch, climates]);
+    categories.all = true;
+  }, [dispatch, climates, categories]);
 
   // category handler
   useEffect(() => {
@@ -54,7 +55,6 @@ const Home = () => {
       setTempClimate(tempCountry);
     }
   }, [dispatch, categories, climates]);
-
   return (
     <main className="overflow-auto">
 

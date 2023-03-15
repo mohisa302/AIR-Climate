@@ -1,3 +1,10 @@
+import germany from '../img/Germany.png';
+import france from '../img/France.png';
+import Spain from '../img/Spain.png';
+import Italy from '../img/Italy.png';
+import Netherland from '../img/Netherland.png';
+import greatBritain from '../img/greatBritain.png';
+
 export const cityName = [
   'London', 'Liverpool', 'Leeds', 'Manchester', 'Lester',
   'Berlin', 'Hamburg', 'Mainz', 'Leipzig', 'Brunswick',
@@ -10,26 +17,26 @@ export const cityName = [
 export const countyName = [
   {
     name: 'France',
-    icon: '/static/media/France.08f64f8db30235439df1.png',
+    icon: france,
   },
   {
     name: 'Germany',
-    icon: '/static/media/Germany.0765e0cda82904f0d9b2.png',
+    icon: germany,
   },
   {
     name: 'Spain',
-    icon: '/static/media/Spain.8661f566d029784fa03b.png',
+    icon: Spain,
   },
   {
     name: 'GreatBritain',
-    icon: '/static/media/greatBritain.8f0693cbcfc88199b22f.png',
+    icon: greatBritain,
   },
   {
     name: 'Netherland',
-    icon: '/static/media/Netherland.92ccbc84e7b00d6251fd.png',
+    icon: Netherland,
   },
   {
     name: 'Italy',
-    icon: '/static/media/Italy.bedc32088fcaa8386580.png ',
+    icon: Italy,
   },
 ];
