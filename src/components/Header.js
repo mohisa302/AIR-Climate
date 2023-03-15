@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { AiOutlineLeft, AiFillAudio, AiFillSetting } from 'react-icons/ai';
+import { AiOutlineLeft, AiFillSetting } from 'react-icons/ai';
+import { FaSearch } from 'react-icons/fa';
 import { changeCat } from '../redux/slices/categorySlice';
 
 const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const [search, setSearch] = useState(false);
+  const [filter, setFilter] = useState({ category: false, search: false });
   const activeLink = location.pathname === '/'
     ? '/'
     : location.pathname.split('').slice(1).join('');
+
   const geerHandler = (e) => {
     if (e.target.value.toLowerCase() === 'all') dispatch(changeCat({ all: true, country: false }));
     else dispatch(changeCat({ country: true, all: false }));
+  };
+
+  const searchHandler = (e) => {
+    console.log(e.target.value);
   };
 
   const navLinks = [
@@ -55,10 +61,21 @@ const Header = () => {
             </>
             )}
         <div className="flex items-center">
+          {filter.category && (activeLink === '/') && (
+          <input
+            type="text"
+            onChange={searchHandler}
+            className="text-black w-28"
+            placeholder="Search..."
+          />
+          )}
           <Link to="/">
-            <AiFillAudio className="mr-4 cursor-pointer hover:animate-spin" />
+            <FaSearch
+              className="mr-4 ml-2 cursor-pointer scale-100 hover:scale-125 ease-in duration-500"
+              onClick={() => setFilter((pre) => ({ search: pre.search, category: !pre.category }))}
+            />
           </Link>
-          {search && (activeLink === '/') && (
+          {filter.search && (activeLink === '/') && (
             <select
               onChange={geerHandler}
               className="text-black"
@@ -70,7 +87,7 @@ const Header = () => {
             </select>
           )}
           {activeLink === '/' && (
-            <AiFillSetting role="tab" className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setSearch((prev) => !prev)} />
+            <AiFillSetting role="tab" className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setFilter((pre) => ({ search: !pre.search, category: pre.category }))} />
           )}
         </div>
       </div>

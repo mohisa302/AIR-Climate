@@ -87,7 +87,7 @@ const Home = () => {
             )}
           </h4>
 
-          <div className="grid grid-cols-2 [&>*:nth-child(4n+3)]:text-[#0a044a] [&>*:nth-child(4n+2)]:text-[#0a044a]  font-semibold md:grid-cols-3 [&>*:nth-child(4n+1)]:bg-[#594acb] [&>*:nth-child(4n)]:bg-[#594acb]">
+          <div className="grid grid-cols-2 [&>*:nth-child(4n+3)]:text-[#0a044a] [&>*:nth-child(4n+2)]:text-[#0a044a]  font-semibold md:grid-cols-3 [&>*:nth-child(4n+1)]:bg-[#594acb] md:[&>*:nth-child(even)]:bg-[#594acb]  md:[&>*:nth-child(odd)]:bg-[#594acb] [&>*:nth-child(4n)]:bg-[#594acb]">
 
             {/* all */}
             {categories.all && (
