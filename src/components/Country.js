@@ -8,7 +8,7 @@ const Country = () => {
   } = data;
   return (
     <main className="over-flow-auto">
-      <div className="flex flex-col [&>*:nth-child(odd)]:bg-[#5c4cd4]">
+      <div className="flex flex-col [&>*:nth-child(odd)]:bg-[#4a3bbb] font-semibold [&>*:nth-child(even)]:text-[#0a044a] [&>*:nth-child(odd)]:text-white">
         {cities.map((city) => (
           <Link
             to="/Details"
@@ -18,7 +18,7 @@ const Country = () => {
             }}
             key={city.id}
           >
-            <div className="flex text-white flex-col items-center text-right p-2">
+            <div className="flex flex-col items-center p-2">
               <img src={city.icon} className="h-15 w-20" alt="map" />
               <h6 className="">{city.name}</h6>
               <h6>

@@ -33,7 +33,7 @@ const Card = (city) => {
       }}
     >
       <div className="flex hover:animate-pulse flex-col text-right object-fill h-full p-1">
-        <img src={icon} className="object-fill h-full w-20" alt="map" />
+        <img src={icon} className="contrast-100 h-full w-20" alt="map" />
         <h6 className="">{nameTemp}</h6>
         <h6>
           {temperature}

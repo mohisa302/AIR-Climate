@@ -4,15 +4,8 @@ import asyncWeather from '../redux/slices/apiSlice';
 import { cityName, countyName } from './data';
 import Card from './Card';
 import map from '../img/europa.png';
-import Germany from '../img/Germany.png';
-import France from '../img/France.png';
-import Italy from '../img/Italy.png';
-import Spain from '../img/Spain.png';
-import Netherland from '../img/Netherland.png';
-import Greatbritain from '../img/greatBritain.png';
 
 const Home = () => {
-  console.log(Germany, France, Italy, Spain, Netherland, Greatbritain);
   // load data
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
@@ -60,14 +53,14 @@ const Home = () => {
       });
       setTempClimate(tempCountry);
     }
-  }, [dispatch, categories]);
+  }, [dispatch, categories, climates]);
 
   return (
     <main className="overflow-auto">
 
       <div className="flex flex-col">
         {/* fist part */}
-        <div className="flex text-white items-center  justify-center gap-x-3">
+        <div className="flex text-blue-900 items-center font-extrabold justify-center gap-x-3">
           <img
             alt="map"
             src={map}
@@ -94,7 +87,7 @@ const Home = () => {
             )}
           </h4>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 [&>*:nth-child(4n+1)]:bg-[#594acb] [&>*:nth-child(4n)]:bg-[#594acb]">
+          <div className="grid grid-cols-2 [&>*:nth-child(4n+3)]:text-[#0a044a] [&>*:nth-child(4n+2)]:text-[#0a044a]  font-semibold md:grid-cols-3 [&>*:nth-child(4n+1)]:bg-[#594acb] [&>*:nth-child(4n)]:bg-[#594acb]">
 
             {/* all */}
             {categories.all && (
