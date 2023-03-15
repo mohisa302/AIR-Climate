@@ -1,8 +1,8 @@
 const initialState = {
-  categories: [{
+  categories: {
     country: false,
     all: true,
-  }],
+  },
 };
 
 const CHANGE_CAT = 'CHANGE_CAT';

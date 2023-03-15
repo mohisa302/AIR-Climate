@@ -19,6 +19,11 @@ export const loadClimate = (climate) => ({
   climate,
 });
 
+export const replaceClimate = (climate) => ({
+  type: 'REPLACE_CLIMATE',
+  climate,
+});
+
 const weatherReducer = (state = initialState, action) => {
   if (action.type === LOAD_CLIMATE) {
     const climate = {
@@ -36,12 +41,13 @@ const weatherReducer = (state = initialState, action) => {
       climates: [...state.climates, climate],
     };
   }
-  // const
-  // const newMissions = state.missions.map((mission) => {
-  //   if (mission.mission_id !== action.missions) return mission;
-  //   return { ...mission, reserved: false };
-  // });
-  // newState.missions = newMissions;
+
+  if (action.type === 'REPLACE_CLIMATE') {
+    return {
+      ...state,
+      climates: action.climate,
+    };
+  }
   return state;
 };
 
