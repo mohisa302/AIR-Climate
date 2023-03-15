@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/AIR-Climate/static/css/main.3d4e50e2.css",
-    "main.js": "/AIR-Climate/static/js/main.45c3f74c.js",
+    "main.js": "/AIR-Climate/static/js/main.38d46f23.js",
     "static/media/Netherland.png": "/AIR-Climate/static/media/Netherland.92ccbc84e7b00d6251fd.png",
     "static/media/europa.png": "/AIR-Climate/static/media/europa.14fd8f693867d60585f8.png",
     "static/media/Germany.png": "/AIR-Climate/static/media/Germany.0765e0cda82904f0d9b2.png",
@@ -11,10 +11,10 @@
     "static/media/Spain.png": "/AIR-Climate/static/media/Spain.8661f566d029784fa03b.png",
     "index.html": "/AIR-Climate/index.html",
     "main.3d4e50e2.css.map": "/AIR-Climate/static/css/main.3d4e50e2.css.map",
-    "main.45c3f74c.js.map": "/AIR-Climate/static/js/main.45c3f74c.js.map"
+    "main.38d46f23.js.map": "/AIR-Climate/static/js/main.38d46f23.js.map"
   },
   "entrypoints": [
     "static/css/main.3d4e50e2.css",
-    "static/js/main.45c3f74c.js"
+    "static/js/main.38d46f23.js"
   ]
 }
