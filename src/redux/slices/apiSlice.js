@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { loadClimate } from './weatherSlice';
 
-const weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
 const GET_WEATHER = 'GET_WEATHER';
 // const weatherUrl = 'https://goweather.herokuapp.com/weather/';
 const asyncWeather = createAsyncThunk(
