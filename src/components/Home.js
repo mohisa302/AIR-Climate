@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import asyncWeather from '../redux/slices/apiSlice';
 import { cityName } from './data';
 import Card from './Card';
+// import Card from './Card';
 import map from '../img/europa.png';
 // #dd4883 #d04379
 
