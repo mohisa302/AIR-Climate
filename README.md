@@ -50,7 +50,8 @@ An API to get information about temperature, humidity and ... from most importan
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-No live demo yet
+[Link to live demo](https://air-climate.onrender.com/)
+[Link to introduction video](https://www.loom.com/share/2b76bb2252de4b5c90e36595cbdaa08f)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
