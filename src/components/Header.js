@@ -2,24 +2,28 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AiOutlineLeft, AiFillSetting } from 'react-icons/ai';
-import { FaSearch } from 'react-icons/fa';
-import { changeCat } from '../redux/slices/categorySlice';
+import { changeCat, serachWord } from '../redux/slices/categorySlice';
 
 const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [filter, setFilter] = useState({ category: false, search: false });
+  // search input
   const activeLink = location.pathname === '/'
     ? '/'
     : location.pathname.split('').slice(1).join('');
 
   const geerHandler = (e) => {
-    if (e.target.value.toLowerCase() === 'all') dispatch(changeCat({ all: true, country: false }));
-    else dispatch(changeCat({ country: true, all: false }));
-  };
-
-  const searchHandler = (e) => {
-    console.log(e.target.value);
+    if (e.target.value.toLowerCase() === 'name') {
+      dispatch(changeCat({ country: false, all: false, search: '' }));
+      setFilter((pre) => ({ search: pre.search, category: !pre.category }));
+      console.log(filter);
+    } else {
+      console.log('l');
+      if (e.target.value.toLowerCase() === 'all') dispatch(changeCat({ all: true, country: false, search: '' }));
+      if (e.target.value.toLowerCase() === 'country') dispatch(changeCat({ country: true, all: false, search: '' }));
+      setFilter((pre) => ({ search: pre.search, category: false }));
+    }
   };
 
   const navLinks = [
@@ -64,17 +68,12 @@ const Header = () => {
           {filter.category && (activeLink === '/') && (
           <input
             type="text"
-            onChange={searchHandler}
-            className="text-black w-28"
+            onChange={(event) => dispatch(serachWord(event.target.value))}
+            className="text-black w-32 pl-1 mr-2"
             placeholder="Search..."
+
           />
           )}
-          <Link to="/">
-            <FaSearch
-              className="mr-4 ml-2 cursor-pointer scale-100 hover:scale-125 ease-in duration-500"
-              onClick={() => setFilter((pre) => ({ search: pre.search, category: !pre.category }))}
-            />
-          </Link>
           {filter.search && (activeLink === '/') && (
             <select
               onChange={geerHandler}
@@ -82,8 +81,8 @@ const Header = () => {
               data-te-select-init
               data-te-select-placeholder="Select category"
             >
-              <option selected>Select category</option>
-              {['All', 'Country'].map((c) => <option className="text-sm" id={`${c}`} value={c} key={c}>{c}</option>)}
+              <option selected>Select</option>
+              {['All', 'Country', 'Name'].map((c) => <option className="text-sm" id={`${c}`} value={c} key={c}>{c}</option>)}
             </select>
           )}
           {activeLink === '/' && (

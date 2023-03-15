@@ -107,7 +107,7 @@ const Home = () => {
             )}
 
             {/* parameter */}
-            {!categories.all && (
+            {categories.country && (
               tempClimate.map((country) => (
                 <Card
                   name={country.name}
