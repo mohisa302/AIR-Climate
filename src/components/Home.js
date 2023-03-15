@@ -22,7 +22,6 @@ const Home = () => {
     if (climates.length < 1) {
       cityName.forEach((city) => dispatch(asyncWeather(city)));
     }
-    console.log('render');
   }, [dispatch, [climates]]);
 
   return (
@@ -52,7 +51,6 @@ const Home = () => {
             {climates.map((city) => (
               <Card
                 key={city.id}
-                id={city.id}
                 country={city.country}
                 name={city.city}
                 description={city.description}

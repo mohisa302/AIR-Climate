@@ -61,18 +61,17 @@ const Header = () => {
           <Link to="/">
             <AiFillAudio className="mr-4" />
           </Link>
-          <div>
-            <AiFillSetting onClick={() => setSearch((prev) => !prev)} />
-          </div>
           {!search && (
             <select
               onChange={geerHandler}
               className="text-black"
             >
               <option value="" className="w-2 text-sm">Select category</option>
-              {countyName.map((c) => <option value={c} key={c}>{c}</option>)}
+              {countyName.map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
             </select>
           )}
+
+          <AiFillSetting className="ml-1" onClick={() => setSearch((prev) => !prev)} />
         </div>
       </div>
     </header>
