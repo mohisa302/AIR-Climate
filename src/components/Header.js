@@ -56,19 +56,20 @@ const Header = () => {
             )}
         <div className="flex items-center">
           <Link to="/">
-            <AiFillAudio className="mr-4" />
+            <AiFillAudio className="mr-4 cursor-pointer hover:animate-spin" />
           </Link>
-          {search && (
+          {search && (activeLink === '/') && (
             <select
               onChange={geerHandler}
               className="text-black"
             >
-              <option value="" className="w-2 text-sm">Select category</option>
+              <option value="" className="w-2 text-sm ">Select category</option>
               {['All', 'Country'].map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
             </select>
           )}
-
-          <AiFillSetting className="ml-1" onClick={() => setSearch((prev) => !prev)} />
+          {activeLink === '/' && (
+            <AiFillSetting className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setSearch((prev) => !prev)} />
+          )}
         </div>
       </div>
     </header>

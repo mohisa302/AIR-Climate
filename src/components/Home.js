@@ -4,11 +4,15 @@ import asyncWeather from '../redux/slices/apiSlice';
 import { cityName, countyName } from './data';
 import Card from './Card';
 import map from '../img/europa.png';
-// import Country from './Country';
-
-// #dd4883 #d04379
+import Germany from '../img/Germany.png';
+import France from '../img/France.png';
+import Italy from '../img/Italy.png';
+import Spain from '../img/Spain.png';
+import Netherland from '../img/Netherland.png';
+import Greatbritain from '../img/greatBritain.png';
 
 const Home = () => {
+  console.log(Germany, France, Italy, Spain, Netherland, Greatbritain);
   // load data
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
@@ -41,13 +45,15 @@ const Home = () => {
   useEffect(() => {
     if (categories.country) {
       const tempCountry = [];
-      countyName.forEach((countryname) => {
+      countyName.forEach((country) => {
         tempCountry.push(
           {
-            cities: climates.filter((climate) => climate.country === countryname),
-            name: countryname,
+            cities: climates.filter((climate) => climate.country === country.name),
+            name: country.name,
+            icon: country.icon,
           },
         );
+
         tempCountry[tempCountry.length - 1].temperature = avgTemp(
           tempCountry[tempCountry.length - 1],
         );
@@ -88,7 +94,7 @@ const Home = () => {
             )}
           </h4>
 
-          <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
+          <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#7362fa]">
 
             {/* all */}
             {categories.all && (
@@ -113,7 +119,7 @@ const Home = () => {
                 <Card
                   name={country.name}
                   key={country.name}
-                  icon=""
+                  icon={country.icon}
                   cities={country.cities}
                   temperature={country.temperature}
                 />

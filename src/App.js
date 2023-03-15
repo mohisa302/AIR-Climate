@@ -7,7 +7,7 @@ import Details from './components/Details';
 import Country from './components/Country';
 
 const App = () => (
-  <div>
+  <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navbar />}>
@@ -17,7 +17,7 @@ const App = () => (
         </Route>
       </Routes>
     </BrowserRouter>
-  </div>
+  </>
 );
 
 export default App;

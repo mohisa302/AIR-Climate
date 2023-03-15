@@ -12,7 +12,7 @@ const Card = (city) => {
 
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.categories);
-  const nameTemp = name.length > 10
+  const nameTemp = name.length > 13
     ? `${name.substring(0, 10)}...`
     : name;
 
@@ -32,8 +32,8 @@ const Card = (city) => {
         prop: city,
       }}
     >
-      <div className="flex flex-col text-right border-2 border-indigo-500/100 p-1">
-        <img src={icon} className="h-15 w-20" alt="map" />
+      <div className="flex hover:animate-pulse flex-col text-right border-2  object-fill h-full border-[#480bff]  p-1">
+        <img src={icon} className="object-fill h-full w-20" alt="map" />
         <h6 className="">{nameTemp}</h6>
         <h6>
           {temperature}
