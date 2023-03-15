@@ -65,6 +65,7 @@ const Header = () => {
               data-te-select-init
               data-te-select-placeholder="Select category"
             >
+              <option selected>Select category</option>
               {['All', 'Country'].map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
             </select>
           )}
