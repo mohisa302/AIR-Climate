@@ -77,6 +77,8 @@ const Home = () => {
 
         {/* cards */}
         <div className="text-white">
+
+          {/* category indicator */}
           <h4 className="bg-[#210479] text-xs font-bold p-1">
             STATS BY&nbsp;
             {categories.country && (
@@ -106,7 +108,7 @@ const Home = () => {
               ))
             )}
 
-            {/* parameter */}
+            {/* country */}
             {categories.country && (
               tempClimate.map((country) => (
                 <Card
@@ -115,6 +117,25 @@ const Home = () => {
                   icon={country.icon}
                   cities={country.cities}
                   temperature={country.temperature}
+                />
+              ))
+            )}
+
+            {/* search */}
+            {(categories.search !== '') && (
+              climates.filter((val) => (
+                val.name.toLowerCase().includes(categories.search.toLowerCase())
+              )).map((city) => (
+                <Card
+                  key={city.id}
+                  country={city.country}
+                  name={city.name}
+                  description={city.description}
+                  temperature={city.temperature}
+                  wind={city.wind}
+                  icon={city.icon}
+                  humidity={city.humidity}
+                  category={categories}
                 />
               ))
             )}
