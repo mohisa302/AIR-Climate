@@ -62,8 +62,9 @@ const Header = () => {
             <select
               onChange={geerHandler}
               className="text-black"
+              data-te-select-init
+              data-te-select-placeholder="Select category"
             >
-              <option value="" className="w-2 text-sm ">Select category</option>
               {['All', 'Country'].map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
             </select>
           )}
