@@ -1,5 +1,5 @@
-/* global expect, jest */
-/* global jest */
+/* eslint-disable  import/no-duplicates */
+
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
@@ -12,17 +12,6 @@ import Card from '../components/Card';
 import Header from '../components/Header';
 
 describe('Air Climate', () => {
-  const climate = [{
-    country: 'Germany',
-    description: 'clear sky',
-    humidity: 88,
-    icon: 'https://openweathermap.org/img/wn/01d@2x.png',
-    id: 2644210,
-    name: 'Liverpool',
-    temperature: 4.36,
-    wind: 3.6,
-  }];
-
   it('Snapshot of Home Component', () => {
     const tree = TestRenderer.create(
       <Provider store={store}>
@@ -42,7 +31,7 @@ describe('Air Climate', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it('Navbar card exist in the Header', () => {
     render(
       <Provider store={store}>
@@ -111,7 +100,7 @@ describe('Air Climate', () => {
     act(() => {
       const joinBtns = screen.getAllByRole('tab');
       fireEvent.click(joinBtns[0]);
-    })
+    });
     const selectElement = document.querySelector('#All');
     expect(selectElement).toBeNull();
   });

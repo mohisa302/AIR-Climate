@@ -1,29 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Air Climate Click on Leave button 1`] = `
-<a
-  href="/Details"
-  onClick={[Function]}
->
-  <div
-    className="flex hover:animate-pulse flex-col text-right object-fill h-full p-1"
-  >
-    <img
-      alt="map"
-      className="contrast-100 h-full w-20"
-    />
-    <h6
-      className=""
-    >
-      Pakistan
-    </h6>
-    <h6>
-      °C
-    </h6>
-  </div>
-</a>
-`;
-
 exports[`Air Climate Snapshot of Card Component 1`] = `
 <a
   href="/Details"
