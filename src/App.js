@@ -4,7 +4,7 @@ import {
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Details from './components/Details';
-// import Country from './components/Country';
+import Country from './components/Country';
 
 const App = () => (
   <div>
@@ -13,7 +13,7 @@ const App = () => (
         <Route path="/" element={<Navbar />}>
           <Route path="/" element={<Home />} />
           <Route path="/Details" element={<Details />} />
-          {/* <Route path="/Country" element={<Country />} /> */}
+          <Route path="/Country" element={<Country />} />
         </Route>
       </Routes>
     </BrowserRouter>

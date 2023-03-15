@@ -45,7 +45,7 @@ const Header = () => {
             && (
               <h3 className="whitespace-nowrap"> average Temps </h3>
             )}
-        {activeLink === 'Details'
+        {activeLink !== '/'
             && (
             <>
               <Link to="/">

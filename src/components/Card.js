@@ -11,7 +11,7 @@ const Card = (city) => {
   } = city;
 
   const dispatch = useDispatch();
-
+  const { categories } = useSelector((state) => state.categories);
   const nameTemp = name.length > 10
     ? `${name.substring(0, 10)}...`
     : name;
@@ -23,9 +23,10 @@ const Card = (city) => {
     europeTemp += temperature / 60;
     dispatch(changeTemp(europeTemp.toString()));
   }, [dispatch, temperature]);
+
   return (
     <Link
-      to="/Details"
+      to={`${categories.all === true ? '/Details' : '/Country'}`}
       state={{
         from: '/',
         prop: city,

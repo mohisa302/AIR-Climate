@@ -12,14 +12,23 @@ const Home = () => {
   // load data
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
+  const { categories } = useSelector((state) => state.categories);
 
+  // category temp
   const [tempClimate, setTempClimate] = useState([]);
 
+  // main temp
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
 
-  const { categories } = useSelector((state) => state.categories);
-  // console.log(climates);
+  const avgTemp = (country) => {
+    let avg = 0;
+    country.cities.forEach((city) => {
+      avg += city.temperature / country.cities.length;
+    });
+    avg = (Math.round(avg * 100) / 100).toFixed(2);
+    return avg;
+  };
 
   // climates load handler
   useEffect(() => {
@@ -30,19 +39,21 @@ const Home = () => {
 
   // category handler
   useEffect(() => {
-    const temp = [];
     if (categories.country) {
-      // tempClimate = climates.filter((climate) => climate.country === 'France');
+      const tempCountry = [];
       countyName.forEach((countryname) => {
-        temp.push(
+        tempCountry.push(
           {
             cities: climates.filter((climate) => climate.country === countryname),
             name: countryname,
           },
         );
+        tempCountry[tempCountry.length - 1].temperature = avgTemp(
+          tempCountry[tempCountry.length - 1],
+        );
       });
+      setTempClimate(tempCountry);
     }
-    setTempClimate(temp);
   }, [dispatch, categories]);
 
   return (
@@ -78,12 +89,14 @@ const Home = () => {
           </h4>
 
           <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
+
+            {/* all */}
             {categories.all && (
               climates.map((city) => (
                 <Card
                   key={city.id}
                   country={city.country}
-                  name={city.city}
+                  name={city.name}
                   description={city.description}
                   temperature={city.temperature}
                   wind={city.wind}
@@ -93,13 +106,16 @@ const Home = () => {
                 />
               ))
             )}
+
+            {/* parameter */}
             {!categories.all && (
               tempClimate.map((country) => (
                 <Card
                   name={country.name}
                   key={country.name}
                   icon=""
-                  temperature="10"
+                  cities={country.cities}
+                  temperature={country.temperature}
                 />
               ))
             )}

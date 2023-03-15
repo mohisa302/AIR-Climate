@@ -22,7 +22,7 @@ export const loadClimate = (climate) => ({
 const weatherReducer = (state = initialState, action) => {
   if (action.type === LOAD_CLIMATE) {
     const climate = {
-      city: action.climate.name,
+      name: action.climate.name,
       temperature: action.climate.main.temp,
       humidity: action.climate.main.humidity,
       description: action.climate.weather[0].description,
