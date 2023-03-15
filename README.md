@@ -2,7 +2,7 @@
 
 <div>
 
-  <h1><b>Space Traveler's Hub</b></h1><br/><br/>
+  <h1><b>Weather Climate</b></h1><br/><br/>
 
 </div>
 
@@ -26,9 +26,9 @@
 - [📝 License](#license)
 
 # 📖 Space Traveler's Hub<a name="about-project"></a>
-** Space Traveler's Hub **
+** Weather Climate **
 
-A travel service to space!
+An API to get information about temperature, humidity and ... from most important EUROPE cities.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -44,7 +44,7 @@ A travel service to space!
 
 - **Reseve and Cancel Rockets and Missions**
 
-  - The website that displays a list of Rockets/Missions and allows you to add and remove them from your storage.
+  - The website that displays information about climates and displays them in categories.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,14 +77,14 @@ To clone this repository to your desired folder, follow the steps below:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Ezzywealth/space_travelers_hub
+  git clone git@github.com:mohisa302/AIR-Climate.git
 ```
 
 **Using GitHub Desktop app**
 
 - Follow the steps below
 
-  - Visit this link "https://github.com/Ezzywealth/space_travelers_hub"
+  - Visit this link "https://github.com/mohisa302/AIR-Climate.git"
   - Click the green button labelled "code"
   - Select the "Open with GitHub Desktop" option
   - After the GitHub Desktop add opens, click the "clone repo" button
@@ -107,12 +107,6 @@ You can deploy this project by:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
-
-👤 **Ezekiel**
-
-- GitHub: [@Ezzywealth](https://github.com/Ezzywealth)
-- Twitter: [@EzzyWealth](https://twitter.com/EzzyWealth)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ezekiel-udiomuno)
 
 👤 **Mohi**
 
@@ -142,12 +136,12 @@ If you like this project, give it a `star` and let me know what you like in part
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the whole Microverse community for their help and contributions towards this project.
+I would like to thank the [OpenWeathe API](https://openweathermap.org/api/air-pollution) for their amazing database, and [Nelson Sakwa](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)) for the incredible design!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE.md) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
