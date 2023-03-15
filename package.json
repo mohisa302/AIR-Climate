@@ -2,7 +2,7 @@
   "name": "AIR_Climate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shasherazi.github.io/AIR-Climate/",
+  "homepage": "https://mohisa302.github.io/AIR-Climate/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@tailwindcss/line-clamp": "^0.4.2",
