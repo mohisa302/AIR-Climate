@@ -18,13 +18,17 @@ const Card = (city) => {
 
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = parseInt(europeTemp, 10);
+  const data2 = {
+    from: '/',
+    prop: city,
+  };
 
   useEffect(() => {
     europeTemp += temperature / 60;
     dispatch(changeTemp(europeTemp.toString()));
   }, [dispatch, temperature]);
   return (
-    <Link to="/Details">
+    <Link to="/Details" state={data2}>
       <div className="flex flex-col text-right border-2 border-indigo-500/100 p-1">
         <img src={icon} className="h-15 w-20" alt="map" />
         <h6 className="">{nameTemp}</h6>
