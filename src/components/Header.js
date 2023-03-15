@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AiOutlineLeft, AiFillAudio, AiFillSetting } from 'react-icons/ai';
-import { countyName } from './data';
 import { changeCat } from '../redux/slices/categorySlice';
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
     ? '/'
     : location.pathname.split('').slice(1).join('');
   const geerHandler = (e) => {
-    if (e.target.value.toLowerCase() !== 'all') dispatch(changeCat({ all: true, country: false }));
+    if (e.target.value.toLowerCase() === 'all') dispatch(changeCat({ all: true, country: false }));
     else dispatch(changeCat({ country: true, all: false }));
   };
 
@@ -65,7 +64,7 @@ const Header = () => {
               className="text-black"
             >
               <option value="" className="w-2 text-sm">Select category</option>
-              {countyName.map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
+              {['All', 'Country'].map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
             </select>
           )}
 

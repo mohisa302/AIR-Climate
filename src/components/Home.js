@@ -1,31 +1,43 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import asyncWeather from '../redux/slices/apiSlice';
-import { cityName } from './data';
+import { cityName, countyName } from './data';
 import Card from './Card';
 import map from '../img/europa.png';
+// import Country from './Country';
+
 // #dd4883 #d04379
 
 const Home = () => {
   // load data
   const dispatch = useDispatch();
-  let { climates } = useSelector((state) => state.climates);
+  const { climates } = useSelector((state) => state.climates);
 
   let { europeTemp } = useSelector((state) => state.temp);
   europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
-
+  let tempClimate = [];
   const { categories } = useSelector((state) => state.categories);
   // console.log(climates);
 
+  // climates load handler
   useEffect(() => {
     if (climates.length < 1) {
       cityName.forEach((city) => dispatch(asyncWeather(city)));
     }
-  }, [dispatch, [climates]]);
+  }, [dispatch, climates]);
 
-  if (!categories.country) {
-    climates = climates.filter((climate) => climate.country === 'France');
-  }
+  // category handler
+  useEffect(() => {
+    tempClimate = [];
+    if (categories.country) {
+      // tempClimate = climates.filter((climate) => climate.country === 'France');
+      countyName.forEach((countryname) => {
+        tempClimate.push(climates.filter((climate) => climate.country === countryname));
+      });
+      console.log(tempClimate);
+    }
+  }, [dispatch, categories]);
+
   return (
     <main className="overflow-auto">
 
@@ -50,15 +62,15 @@ const Home = () => {
         <div className="text-white">
           <h4 className="bg-[#6e44eb] text-xs font-bold p-1">
             STATS BY&nbsp;
-            {!categories.country && (
+            {categories.country && (
               <span>Country</span>
             )}
-            {categories.country && (
+            {!categories.country && (
               <span>All</span>
             )}
           </h4>
           <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
-            {categories.country && (
+            {!categories.country && (
               climates.map((city) => (
                 <Card
                   key={city.id}
@@ -73,6 +85,15 @@ const Home = () => {
                 />
               ))
             )}
+            {/* {categories.country && (
+              climates.map((city) => (
+                <Country
+                  key={city.country}
+                  country={city.country}
+
+                />
+              ))
+            )} */}
           </div>
         </div>
       </div>

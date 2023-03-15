@@ -7,4 +7,5 @@ export const cityName = [
   'Almere', 'Tilburg', 'Enschede', 'Doetinchem', 'Weert',
 ];
 
-export const countyName = ['All', 'Country'];
+export const countyName = ['France', 'Germany', 'GreatBritain',
+  'Spain', 'Netherland', 'Italy'];
