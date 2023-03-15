@@ -25,7 +25,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Space Traveler's Hub<a name="about-project"></a>
+# 📖 Weather Climate <a name="about-project"></a>
 ** Weather Climate **
 
 An API to get information about temperature, humidity and ... from most important EUROPE cities.
@@ -50,8 +50,9 @@ An API to get information about temperature, humidity and ... from most importan
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Link to live demo](https://air-climate.onrender.com/)
-[Link to introduction video](https://www.loom.com/share/2b76bb2252de4b5c90e36595cbdaa08f)
+- [Link to live demo](https://air-climate.onrender.com/)
+
+- [Link to introduction video](https://www.loom.com/share/2b76bb2252de4b5c90e36595cbdaa08f)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
