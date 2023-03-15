@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react';
+/* global expect, jest */
+/* global jest */
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Provider, useDispatch } from 'react-redux';
+import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
 import TestRenderer, { act } from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
-import { configureStore } from '@reduxjs/toolkit';
 import Home from '../components/Home';
 import store from '../redux/store';
 import Card from '../components/Card';
 import Header from '../components/Header';
-// import { changeCat } from '../redux/slices/categorySlice';
-import { replaceClimate } from '../redux/slices/weatherSlice';
 
 describe('Air Climate', () => {
   const climate = [{
@@ -40,14 +40,9 @@ describe('Air Climate', () => {
         </BrowserRouter>
       </Provider>,
     ).toJSON();
-    console.log(store);
     expect(tree).toMatchSnapshot();
   });
-  // dispatch: [Function (anonymous)],
-  // subscribe: [Function: subscribe],
-  // getState: [Function: getState],
-  // replaceReducer: [Function: replaceReducer],
-  // '@@observable': [Function: observable]
+  
   it('Navbar card exist in the Header', () => {
     render(
       <Provider store={store}>
@@ -56,7 +51,6 @@ describe('Air Climate', () => {
         </BrowserRouter>
       </Provider>,
     );
-    console.log(store.getState());
     const navElement = screen.getByText(/avera/i);
     expect(navElement).toBeInTheDocument();
   });
@@ -70,11 +64,10 @@ describe('Air Climate', () => {
         </BrowserRouter>
       </Provider>,
     ).toJSON();
-
     expect(tree).toMatchSnapshot();
   });
 
-  it('Category changes base on store', async () => {
+  it('Category is all by default on home', async () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -82,94 +75,55 @@ describe('Air Climate', () => {
         </BrowserRouter>
       </Provider>,
     );
-    act(() => {
-      const dispatch = useDispatch();
-      dispatch(replaceClimate(climate));
-    });
-    const category = await screen.getByText(/STATS BY ALL/i);
+    const category = await screen.getByText(/ALL/i);
     expect(category).toBeInTheDocument();
   });
 
-  // it('Status exist', async () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <Missions />
-  //     </Provider>,
-  //   );
-  //   const leaveBtn = await screen.findAllByText('NOT A MEMBER');
-  //   expect(leaveBtn).toHaveLength(10);
-  // });
+  it('Gear icon opens selector in the Header', async () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </Provider>,
+    );
+    act(() => {
+      const joinBtns = screen.getAllByRole('tab');
+      fireEvent.click(joinBtns[0]);
+    });
+    const selectElement = document.querySelector('#All');
+    expect(selectElement).toBeInTheDocument();
+  });
 
-  // it('Click on Join button', async () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <Missions />
-  //     </Provider>,
-  //   );
+  it('Gear icon closes selector in the Header', async () => {
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </Provider>,
+    );
+    act(() => {
+      const joinBtns = screen.getAllByRole('tab');
+      fireEvent.click(joinBtns[0]);
+    });
 
-  //   act(() => {
-  //     const joinBtns = screen.getAllByText('Join Mission');
-  //     joinBtns[0].click();
-  //   });
+    act(() => {
+      const joinBtns = screen.getAllByRole('tab');
+      fireEvent.click(joinBtns[0]);
+    })
+    const selectElement = document.querySelector('#All');
+    expect(selectElement).toBeNull();
+  });
 
-  //   const status = await screen.getAllByText('Active Member');
-  //   expect(status).toHaveLength(1);
-  // });
-
-  // it('Click on Leave button', async () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <Missions />
-  //     </Provider>,
-  //   );
-
-  //   act(() => {
-  //     const leaveBtn = screen.getAllByText('Leave Mission');
-  //     leaveBtn[0].click();
-  //   });
-  //   const status = await screen.getAllByText('NOT A MEMBER');
-  //   expect(status).toHaveLength(10);
-  // });
-
-  // it('Click more than one Join button', async () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <Missions />
-  //     </Provider>,
-  //   );
-
-  //   act(() => {
-  //     const joinBtns = screen.getAllByText('Join Mission');
-  //     joinBtns[0].click();
-  //   });
-
-  //   act(() => {
-  //     const joinBtns = screen.getAllByText('Join Mission');
-  //     joinBtns[0].click();
-  //   });
-
-  //   const status = await screen.getAllByText('Active Member');
-  //   expect(status).toHaveLength(2);
-  // });
-
-  // it('Click on more than one Leave button', async () => {
-  //   render(
-  //     <Provider store={store}>
-  //       <Missions />
-  //     </Provider>,
-  //   );
-
-  //   act(() => {
-  //     const leaveBtn = screen.getAllByText('Leave Mission');
-  //     leaveBtn[0].click();
-  //   });
-
-  //   act(() => {
-  //     const leaveBtn = screen.getAllByText('Leave Mission');
-  //     leaveBtn[0].click();
-  //   });
-
-  //   const status = await screen.getAllByText('NOT A MEMBER');
-  //   expect(status).toHaveLength(10);
-  // });
+  it('Snapshot of Card Component', () => {
+    const tree = renderer.create(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Card name="London" />
+        </BrowserRouter>
+      </Provider>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

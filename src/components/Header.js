@@ -66,11 +66,11 @@ const Header = () => {
               data-te-select-placeholder="Select category"
             >
               <option selected>Select category</option>
-              {['All', 'Country'].map((c) => <option className="text-sm" value={c} key={c}>{c}</option>)}
+              {['All', 'Country'].map((c) => <option className="text-sm" id={`${c}`} value={c} key={c}>{c}</option>)}
             </select>
           )}
           {activeLink === '/' && (
-            <AiFillSetting className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setSearch((prev) => !prev)} />
+            <AiFillSetting role="tab" className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setSearch((prev) => !prev)} />
           )}
         </div>
       </div>
