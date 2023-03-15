@@ -112,8 +112,8 @@ You can deploy this project by:
 
 👤 **Mohi**
 
-- GitHub: [@Ezzywealth](https://github.com/mohisa302)
-- Twitter: [@EzzyWealth](https://twitter.com/Kholochelam)
+- GitHub: [@mohisa302](https://github.com/mohisa302)
+- Twitter: [@twitter](https://twitter.com/Kholochelam)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohadese-sadeghi)
 
 ## 🔭 Future Features <a name="future-features"></a>
