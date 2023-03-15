@@ -11,14 +11,14 @@ const Home = () => {
   // load data
   const dispatch = useDispatch();
   const { climates } = useSelector((state) => state.climates);
+  let { europeTemp } = useSelector((state) => state.temp);
+  europeTemp = (Math.round(europeTemp * 100) / 100).toFixed(2);
   const { categories } = useSelector((state) => state.categories);
-
   useEffect(() => {
     if (climates.length < 1) {
       cityName.forEach((city) => dispatch(asyncWeather(city)));
     }
   }, [dispatch, climates, categories]);
-
   return (
     <main className="overflow-auto">
 
@@ -32,14 +32,17 @@ const Home = () => {
           />
           <div className="flex flex-col">
             <h3 className="font-bold">EUROPE</h3>
-            <h5 className="text-xs">degree</h5>
+            <h5 className="text-xs">
+              {europeTemp}
+              &deg;C
+            </h5>
           </div>
         </div>
 
         {/* cards */}
         <div className="text-white">
           <h4 className="bg-[#6e44eb] text-xs font-bold p-1">STATS BY COUNTRY</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 [&>*:nth-child(odd)]:bg-[#7462fc] [&>*:nth-child(even)]:bg-[#8677fc]">
+          <div className="grid grid-cols-2 md:grid-cols-4  [&>*:nth-child(n)]:bg-[#8f81fd]">
             {climates.map((city) => (
               <Card
                 key={city.id}
