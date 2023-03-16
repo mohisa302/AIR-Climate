@@ -9,7 +9,7 @@ const country = (code) => {
   if (code === 'IT') return 'Italy';
   if (code === 'FR') return 'France';
   if (code === 'NL') return 'Netherland';
-  if (code === 'GB') return 'GreatBritain';
+  if (code === 'GB') return 'Greatbritain';
   if (code === 'DE') return 'Germany';
   return code;
 };
