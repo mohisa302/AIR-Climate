@@ -3,7 +3,7 @@ import france from '../img/France.png';
 import Spain from '../img/Spain.png';
 import Italy from '../img/Italy.png';
 import Netherland from '../img/Netherland.png';
-import greatBritain from '../img/greatBritain.png';
+import Greatbritain from '../img/Greatbritain.png';
 
 export const cityName = [
   'London', 'Liverpool', 'Leeds', 'Manchester', 'Lester',
@@ -29,7 +29,7 @@ export const countyName = [
   },
   {
     name: 'GreatBritain',
-    icon: greatBritain,
+    icon: Greatbritain,
   },
   {
     name: 'Netherland',
