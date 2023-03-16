@@ -86,7 +86,7 @@ const Header = () => {
             </select>
           )}
           {activeLink === '/' && (
-            <AiFillSetting role="tab" className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setFilter((pre) => ({ search: !pre.search, category: pre.category }))} />
+            <AiFillSetting role="tab" className="ml-1 cursor-pointer hover:animate-spin" onClick={() => setFilter((pre) => ({ search: !pre.search, category: false }))} />
           )}
         </div>
       </div>
