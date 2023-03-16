@@ -4,6 +4,7 @@ import { WiThermometer, WiHumidity, WiStrongWind } from 'react-icons/wi';
 const Details = () => {
   const location = useLocation();
   const data = location.state.prop;
+  
   const {
     name,
     description,
