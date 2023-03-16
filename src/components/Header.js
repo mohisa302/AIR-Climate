@@ -17,9 +17,7 @@ const Header = () => {
     if (e.target.value.toLowerCase() === 'name') {
       dispatch(changeCat({ country: false, all: false, search: '' }));
       setFilter((pre) => ({ search: pre.search, category: !pre.category }));
-      console.log(filter);
     } else {
-      console.log('l');
       if (e.target.value.toLowerCase() === 'all') dispatch(changeCat({ all: true, country: false, search: '' }));
       if (e.target.value.toLowerCase() === 'country') dispatch(changeCat({ country: true, all: false, search: '' }));
       setFilter((pre) => ({ search: pre.search, category: false }));
