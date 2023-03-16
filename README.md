@@ -52,7 +52,7 @@ An API to get information about temperature, humidity and ... from most importan
 
 - [Link to live demo](https://air-climate.onrender.com/)
 
-- [Link to introduction video](https://www.loom.com/share/2b76bb2252de4b5c90e36595cbdaa08f)
+- [Link to introduction video](https://www.loom.com/share/038f4f2e59fb4fbdb77f281489d4c238)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
