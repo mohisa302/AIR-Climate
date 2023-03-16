@@ -3,7 +3,6 @@ import france from '../img/France.png';
 import Spain from '../img/Spain.png';
 import Italy from '../img/Italy.png';
 import Netherland from '../img/Netherland.png';
-import Greatbritain from '../img/Greatbritain.png';
 
 export const cityName = [
   'London', 'Liverpool', 'Leeds', 'Manchester', 'Lester',
@@ -29,7 +28,7 @@ export const countyName = [
   },
   {
     name: 'GreatBritain',
-    icon: Greatbritain,
+    icon: 'https://www.linkpicture.com/q/Greatbritain.png',
   },
   {
     name: 'Netherland',
